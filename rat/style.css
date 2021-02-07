@@ -277,20 +277,12 @@ body {
   width: 1.5em;
   height: 1.5em;
   margin: 1.75em 0 0 0.1em;
-  background: rgb(114, 193, 225);
+  background: rgb(187, 240, 253);
   border-radius: 50%;
   transform: rotate(-30deg);
-}
-
-.left-foot:after {
-  content: '';
-  position: absolute;
-  width: 0.5em;
-  height: 1em;
-  margin: 2.25em 0 0 0.2em;
-  background:  rgb(154, 219, 245);
-  border-radius: 50%;
-  transform: rotate(-30deg);
+  /* ぼかし */
+  -ms-filter: blur(7px);
+  filter: blur(7px);
 }
 
 .right-foot {
