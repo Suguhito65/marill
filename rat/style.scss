@@ -14,8 +14,8 @@
 }
 
 $body: rgb(114, 193, 225);
-$body-l: rgb(154, 219, 245);
-$body-s: rgb(69, 173, 215);
+$body-l: rgb(154, 219, 245); // light
+$body-s: rgb(69, 173, 215); //shadow
 $solid: solid #000;
 
 html {
@@ -34,6 +34,7 @@ body {
   @include pm(-15em);
   @include tl(50%, 50%);
   @include hw(30em, 30em);
+  animation: fluffy 3s infinite linear;
 }
   
 .head {
@@ -81,7 +82,7 @@ body {
   
     &::before {
       @include pm(0.2em 0 0 0.4em);
-      @include hw(0.7em, 0.6em);
+      @include hw(0.7em, 0.55em);
       content: '';
       background: #fff;
       border-radius: 50%;
@@ -265,12 +266,9 @@ body {
     @include pm(1.75em 0 0 0.1em);
     @include hw(1.5em, 1.5em);
     content: '';
-    background: $body-l;
+    background: $body;
     border-radius: 50%;
     transform: rotate(-30deg);
-    /* ぼかし */
-    -ms-filter: blur(7px);
-    filter: blur(7px);
   }
 }
 
@@ -362,5 +360,20 @@ body {
     content: '';
     background: #000;
     transform: perspective(6em) rotateX(-60deg) rotate(-50deg);
+  }
+}
+
+@keyframes fluffy {
+  0%, 100% {
+    top: 40%;
+    transform: scale(0.98, 1.02);
+  }
+  25%, 75% {
+    top: 50%;
+    transform: scale(1);
+  }
+  50% {
+    top: 60%;
+    transform: scale(1.02, 0.98);
   }
 }
