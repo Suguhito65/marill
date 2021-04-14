@@ -1,0 +1,366 @@
+@mixin pm($margin) {
+  position: absolute;
+  margin: $margin;
+}
+
+@mixin tl($top, $left) {
+  top: $top;
+  left: $left;
+}
+
+@mixin hw($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+$body: rgb(114, 193, 225);
+$body-l: rgb(154, 219, 245);
+$body-s: rgb(69, 173, 215);
+$solid: solid #000;
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 100%;
+}
+
+.marill {
+  @include pm(-15em);
+  @include tl(50%, 50%);
+  @include hw(30em, 30em);
+}
+  
+.head {
+  @include pm(0);
+  @include tl(30%, 40%);
+  @include hw(15em, 15em);
+  border: 0.3em $solid;
+  background: $body;
+  border-radius: 50%;
+  border-top-left-radius: 140px;
+  box-shadow: inset 0em -0.7em $body-s;
+  z-index: 9;
+
+  &::before {
+    @include pm(7.65em 0 0 1.95em);
+    @include hw(7em, 12.5em);
+    content: '';
+    background: #fff;
+    border-left: 0.3em $solid;
+    border-right: 0.3em $solid;
+    border-bottom: 0.3em $solid;
+    border-top-left-radius: 6.25em 3em;
+    border-top-right-radius: 6.25em 3em;
+    border-bottom-left-radius: 7em 4em;
+    border-bottom-right-radius: 5.5em 4em;
+    transform: rotate(-15deg);
+    box-shadow: inset 0em -0.4em rgb(230, 230, 230);
+  }
+
+  &::after {
+    @include pm(0 0 0 5.5em);
+    @include hw(1.5em, 4em);
+    content: '';
+    background: $body-l;
+    border-radius: 50%;
+  }
+
+  .left-eye {
+    @include pm(0);
+    @include tl(25%, 80%);
+    @include hw(1.8em, 1.4em);
+    background: #000;
+    border-radius: 50%;
+    transform: rotate(-10deg);
+  
+    &::before {
+      @include pm(0.2em 0 0 0.4em);
+      @include hw(0.7em, 0.6em);
+      content: '';
+      background: #fff;
+      border-radius: 50%;
+    }
+  }
+
+  .right-eye {
+    @include pm(0);
+    @include tl(25%, 44%);
+    @include hw(1.8em, 1.6em);
+    background: #000;
+    border-radius: 50%;
+    transform: rotate(10deg);
+  
+    &::before {
+      @include pm(0.2em 0 0 0.5em);
+      @include hw(0.8em, 0.8em);
+      content: '';
+      background: #fff;
+      border-radius: 50%;
+    }
+  }
+
+  .mouth {
+    @include pm(0);
+    @include tl(40%, 60%);
+    @include hw(0.8em, 2.5em);
+    background: $body;
+    border-bottom: 0.3em $solid;
+    border-bottom-left-radius: 1.25em 0.8em;
+    border-bottom-right-radius: 1.25em 0.8em;
+  
+    &::before /* nose */ {
+      @include pm(-0.2em 0 0 1.5em);
+      @include hw(0.2em, 0.3em);
+      content: '';
+      background: #000;
+    }
+  }
+}
+
+.left-ear {
+  @include pm(0);
+  @include tl(20%, 75%);
+  @include hw(7em, 6.2em);
+  border: 0.3em $solid;
+  background: $body;
+  border-radius: 49%;
+  transform: rotate(-20deg);
+  z-index: 8;
+
+  &::before {
+    @include pm(1.6em 0 0 0.6em);
+    @include hw(4.4em, 4.2em);
+    content: '';
+    border: 0.3em $solid;
+    background: red;
+    border-radius: 46%;
+    box-shadow: inset 0em 1em rgb(199, 3, 3);
+  }
+
+  &::after {
+    @include pm(0 0 0 1.4em);
+    @include hw(1em, 2em);
+    content: '';
+    background: $body-l;
+    border-radius: 50%;
+    transform: rotate(-10deg);
+  }
+}
+
+.right-ear {
+  @include pm(0);
+  @include tl(20%, 38%);
+  @include hw(7em, 6.5em);
+  border-top: 0.3em $solid;
+  border-left: 0.3em $solid;
+  border-right: 0.2em $solid;
+  border-bottom: 0.2em $solid;
+  background: $body;
+  border-radius: 47%;
+  transform: rotate(20deg);
+  z-index: 10;
+
+  &::before {
+    @include pm(1.9em 0 0 1.9em);
+    @include hw(4.5em, 4.5em);
+    content: '';
+    background: $body-s;
+    border-radius: 50%;
+  }
+
+  &::after {
+    @include pm(1.3em 0 0 1.3em);
+    @include hw(4.6em, 4.4em);
+    content: '';
+    border: 0.3em $solid;
+    background: red;
+    border-radius: 46%;
+    box-shadow: inset 1em 1em rgb(199, 3, 3);
+  }
+
+  .ear-fix {
+    @include pm(0);
+    @include tl(68%, 71%);
+    @include hw(0.8em, 2em);
+    background: $body-s;
+    border-top: 0.3em $solid;
+    transform: rotate(-60deg);
+    border-top-left-radius: 1em 0.5em;
+    border-top-right-radius: 1em 0.5em;
+    z-index: 10;
+  
+    &::before {
+      @include pm(-5.7em 0 0 0.6em);
+      @include hw(1.2em, 2.3em);
+      content: '';
+      background: $body-l;
+      border-radius: 50%;
+      transform: rotate(10deg);
+    }
+  }
+}
+
+.left-hand {
+  @include pm(0);
+  @include tl(53%, 88%);
+  @include hw(3em, 1.8em);
+  border-left: 0.3em $solid;
+  border-right: 0.3em $solid;
+  border-bottom: 0.3em $solid;
+  background: $body-s;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  transform: rotate(-50deg);
+  z-index: 8;
+}
+
+.right-hand {
+  @include pm(0);
+  @include tl(53%, 46%);
+  @include hw(3em, 2em);
+  border-left: 0.3em $solid;
+  border-right: 0.3em $solid;
+  border-bottom: 0.3em $solid;
+  background: $body;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  transform: rotate(50deg);
+  z-index: 10;
+}
+
+.left-foot {
+  @include pm(0);
+  @include tl(74%, 70%);
+  @include hw(3.5em, 2.2em);
+  border-left: 0.3em $solid;
+  border-right: 0.3em $solid;
+  border-bottom: 0.3em $solid;
+  background: $body-s;
+  border-bottom-left-radius: 45%;
+  border-bottom-right-radius: 45%;
+  transform: rotate(-10deg);
+  z-index: 8;
+}
+
+.right-foot {
+  @include pm(0);
+  @include tl(75%, 45%);
+  @include hw(3.5em, 2.2em);
+  border-left: 0.3em $solid;
+  border-right: 0.3em $solid;
+  border-bottom: 0.3em $solid;
+  background: $body-s;
+  border-bottom-left-radius: 45%;
+  border-bottom-right-radius: 45%;
+  transform: rotate(30deg);
+  z-index: 8;
+
+  &::before {
+    @include pm(1.75em 0 0 0.1em);
+    @include hw(1.5em, 1.5em);
+    content: '';
+    background: $body-l;
+    border-radius: 50%;
+    transform: rotate(-30deg);
+    /* ぼかし */
+    -ms-filter: blur(7px);
+    filter: blur(7px);
+  }
+}
+
+.tail {
+  @include pm(0);
+  @include tl(30%, 10%);
+  @include hw(7em, 7em);
+  border: 0.3em $solid;
+  background: $body;
+  border-radius: 50%;
+  box-shadow: inset 0em -0.5em $body-s;
+
+  &::before {
+    @include pm(0.3em 0 0 0.2em);
+    @include hw(2em, 4em);
+    content: '';
+    background: $body-l;
+    border-radius: 50%;
+    transform: rotate(-30deg);
+  }
+}
+
+.tail-black {
+  @include pm(0);
+  @include tl(60%, 30%);
+  @include hw(1em, 5em);
+  background: #000;
+  transform: rotate(30deg);
+  z-index: 8;
+
+  &::before {
+    @include pm(0.6em 0 0 -0.2em);
+    @include hw(3em, 1em);
+    content: '';
+    background: #000;
+    transform: perspective(4em) rotateY(-30deg) rotate(5deg);
+  }
+
+  &::after {
+    @include pm(2.4em 0 0 -2.6em);
+    @include hw(1em, 3em);
+    content: '';
+    background: #000;
+    transform: perspective(4em) rotateX(30deg) rotate(10deg);
+  }
+}
+
+.tail-black2 {
+  @include pm(0);
+  @include tl(59%, 17%);
+  @include hw(2em, 0.7em);
+  background: #000;
+  transform: rotate(55deg);
+
+  &::before {
+    @include pm(1.4em 0 0 -1.3em);
+    @include hw(0.9em, 2em);
+    content: '';
+    background: #000;
+    transform: perspective(4em) rotateX(50deg);
+  }
+
+  &::after {
+    @include pm(1.5em 0 0 -1.6em);
+    @include hw(1.7em, 0.8em);
+    content: '';
+    background: #000;
+    transform: perspective(4em) rotateY(-50deg) rotate(20deg);
+  }
+}
+
+.tail-black3 {
+  @include pm(0.1em 0 0 0.05em);
+  @include tl(55%, 9%);
+  @include hw(2em, 0.5em);
+  background: #000;
+
+  &::before {
+    @include pm(-0.5em 0 0 -1.5em);
+    @include hw(1.1em, 2em);
+    content: '';
+    background: #000;
+    transform: perspective(4em) rotateX(70deg) rotate(15deg);
+  }
+
+  &::after {
+    @include pm(-0.95em 0 0 -2.1em);
+    @include hw(0.7em, 4em);
+    content: '';
+    background: #000;
+    transform: perspective(6em) rotateX(-60deg) rotate(-50deg);
+  }
+}
